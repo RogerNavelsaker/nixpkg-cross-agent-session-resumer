@@ -1,0 +1,19 @@
+{
+  "stubbed": false,
+  "source": {
+    "path": "upstream",
+    "version": "0.1.1",
+    "rev": "8e29029700de42ba38eefae125aaa425bce700f0"
+  },
+  "package": {
+    "version": "0.1.1"
+  },
+  "binary": {
+    "name": "casr"
+  },
+  "meta": {
+    "description": "Resume AI coding sessions across providers",
+    "homepage": "https://github.com/Dicklesworthstone/cross_agent_session_resumer",
+    "licenseSpdx": "MIT"
+  }
+}
