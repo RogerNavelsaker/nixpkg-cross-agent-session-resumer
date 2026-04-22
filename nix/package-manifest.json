@@ -1,9 +1,14 @@
 {
   "stubbed": false,
   "source": {
-    "path": "upstream",
+    "type": "github",
+    "owner": "Dicklesworthstone",
+    "repo": "cross_agent_session_resumer",
+    "channel": "github-head",
+    "defaultBranch": "main",
     "version": "0.1.1",
-    "rev": "8e29029700de42ba38eefae125aaa425bce700f0"
+    "rev": "8e29029700de42ba38eefae125aaa425bce700f0",
+    "hash": "sha256-Y4iroUIdbkaOXcCu/R8F4ZMEZsRep7hOOoWtfUGeECc="
   },
   "package": {
     "version": "0.1.1"

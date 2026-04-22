@@ -1,8 +1,20 @@
-{ bash, lib, makeWrapper, rustPlatform }:
+{ bash, fetchFromGitHub, lib, makeWrapper, runCommand, rustPlatform }:
 
 let
   manifest = builtins.fromJSON (builtins.readFile ./package-manifest.json);
-  sourceRoot = lib.cleanSource ../upstream;
+  upstreamSrc = fetchFromGitHub {
+    owner = manifest.source.owner;
+    repo = manifest.source.repo;
+    rev = manifest.source.rev;
+    hash = manifest.source.hash;
+  };
+  sourceRoot = runCommand "casr-src" { } ''
+    mkdir -p "$out"
+    cp ${upstreamSrc}/Cargo.toml "$out/Cargo.toml"
+    cp ${upstreamSrc}/Cargo.lock "$out/Cargo.lock"
+    cp ${upstreamSrc}/build.rs "$out/build.rs"
+    cp -R ${upstreamSrc}/src "$out/src"
+  '';
   builtBinary = manifest.binary.upstreamName or manifest.binary.name;
   aliasOutputs = manifest.binary.aliases or [ ];
   aliasScripts = lib.concatMapStrings
@@ -24,7 +36,7 @@ rustPlatform.buildRustPackage {
   src = sourceRoot;
 
   cargoLock = {
-    lockFile = ../upstream/Cargo.lock;
+    lockFile = sourceRoot + "/Cargo.lock";
   };
 
   cargoBuildFlags =
