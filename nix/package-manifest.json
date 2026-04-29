@@ -6,12 +6,12 @@
     "repo": "cross_agent_session_resumer",
     "channel": "github-head",
     "defaultBranch": "main",
-    "version": "0.2.1",
-    "rev": "e719329e6bb15c1a0a664728c0b902c8235a494d",
-    "hash": "sha256-vgQYyHGVOyEJdhd66yu96fijUI6BUGI9KGIS4BP+Mgs="
+    "version": "0.2.2",
+    "rev": "26cced58b0d1f5e9e88c1b08eabe929dcb76e6b3",
+    "hash": "sha256-FJPC/CLJR4YJ5gf3klOBY3VV1VNSZcKkTAeg6SXNZS0="
   },
   "package": {
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "binary": {
     "name": "casr"
