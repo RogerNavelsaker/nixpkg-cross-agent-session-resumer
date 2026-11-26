@@ -1,4 +1,4 @@
-{ bash, fetchFromGitHub, lib, makeWrapper, runCommand, rustPlatform }:
+{ bash, fetchFromGitHub, lib, makeWrapper, runCommand, rustPlatform, sqlite }:
 
 let
   manifest = builtins.fromJSON (builtins.readFile ./package-manifest.json);
@@ -44,6 +44,7 @@ rustPlatform.buildRustPackage {
     ++ [ "--bin=${builtBinary}" ];
 
   nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ sqlite ];
   doCheck = false;
 
   env = {
